@@ -74,6 +74,8 @@ findOverlaps(TFBS_cluster_Grange,cl_GRange) %>%
 
 in_cl_peak<-TFBS_cluster_tbl$ID[unique(queryHits(findOverlaps(TFBS_cluster_Grange,cl_GRange)))]
 
+length(in_cl_peak)/nrow(TFBS_cluster_tbl)
+
 gg_tmp<-TFBS_cluster_tbl %>% 
   mutate(hub.io=ifelse(ID %in% in_cl_peak,"in","out")) %>% 
   ggplot(.,aes(X4,color=hub.io))+
